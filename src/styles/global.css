@@ -1,0 +1,24 @@
+@import "@fontsource/bungee";
+@import "@fontsource/raleway";
+@import "@fontsource/rubik";
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    
+}
+
+html{
+    background-color: hsl(207, 47%, 14%);
+}
+
+:root{
+    --primary: hsl(28,100%,50%);
+    --secondary: hsl(207,73%,62%);
+    --gray: hsl(31,30%,85%);
+    --primary-font: "Bungee", sans-serif;
+    --second-font: "Raleway", sans-serif;
+    --third-font: "Rubik", sans-serif;
+}
+

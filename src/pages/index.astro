@@ -1,5 +1,7 @@
 ---
-
+import Navigation from "../components/navigation.astro";
+import Hero from "../components/hero.astro";
+import "../../src/styles/global.css";
 ---
 
 <html lang="en">
@@ -11,6 +13,12 @@
 		<title>Astro</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+			<Navigation />
+		<main>
+			<Hero />
+		</main>
+		<script>
+			import "../script/menu.js";
+		</script>
 	</body>
 </html>

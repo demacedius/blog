@@ -1,0 +1,127 @@
+---
+const items = ["Accueil", "A propos", "Feature", "Contact"];
+---
+
+<nav>
+    <img src="public/logo_large.svg" alt="logo de sportiva" />
+    <div class="nav-link">
+        {items.map((item) => <a href="#">{item}</a>)}
+    </div>
+    <div class="burger">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+    </div>
+</nav>
+
+<style>
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-link {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        position: absolute;
+        width: 100%;
+        top: 4rem;
+        left: 0;
+        background-color: hsl(207, 47%, 14%);
+        opacity: 0;
+        transform: scale(0.5);
+        transition:
+            opacity 0.8s ease,
+            transform 0.8s ease;
+    }
+
+    .nav-link a {
+        text-decoration: none;
+        text-align: center;
+        color: #fff;
+        font-family: var(--primary-font);
+        padding: 2rem 0;
+        width: 100%;
+        border-bottom: solid 1px hsl(31, 30%, 85%);
+    }
+
+    .nav-link a:nth-child(1) {
+        border-top: solid 1px hsl(31, 30%, 85%);
+    }
+
+    .expanded {
+        display: flex;
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .burger {
+        padding-right: 20px;
+        cursor: pointer;
+    }
+
+    .burger .line {
+        display: block;
+        width: 30px;
+        height: 5px;
+        margin-bottom: 3px;
+        background-color: hsl(31, 30%, 85%);
+    }
+
+    @media screen and (min-width: 860px){
+        .nav-link {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            position: static;
+            opacity: 1;
+            width: 33%;
+            align-items: center;
+            transform: none;
+            
+        }
+
+        .nav-link a {
+            border: none;
+            font-size: 0.8rem;
+        }
+
+        .nav-link a:nth-child(1) {
+            border: none;
+        }
+
+        .burger {
+            display: none;
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        .nav-link {
+            display: flex;
+            position: static;
+            opacity: 1;
+            width: 33%;
+            align-items: center;
+            transform: none;
+        }
+        
+        .nav-link a{
+            font-size: 1rem;
+        }
+
+        .burger{
+            display: none;
+        }
+
+        nav{
+            max-width: 1440px;
+            margin: auto;
+        }
+
+        img{
+            
+        }
+    }
+</style>
