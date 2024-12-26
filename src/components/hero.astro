@@ -3,19 +3,23 @@
 ---
 
 <section class="hero">
-    <h1>
-        Et si trouver un <span>partenaire</span><br />
-        pour faire du <span>sport.</span><br />
-        n'était plus un <span>probleme ?</span>
-    </h1>
+    <div class="title">
+        <p>Et si trouver un <span>partenaire</span></p>
+        <p>pour faire du <span>sport.</span></p>
+        <p>n'était plus un <span>probleme ?</span></p>
+    </div>
     <div class="app_presentation">
         <img src="../../public/iPhone_15_L.png" alt="" />
         <img src="../../public/iPhone_15_C.png" alt="" />
         <img src="../../public/iPhone_15_R.png" alt="" />
     </div>
-    <div class="scroll">
-        <h2>Scroll</h2>
-        <img src="public/Rectangle 31 (Stroke).png" alt="" />
+    <div class="scroll_div">
+        <h2 class="scroll">Scroll</h2>
+        <img
+            src="public/Rectangle 31 (Stroke).png"
+            alt=""
+            class="scroll-arrow"
+        />
     </div>
 </section>
 
@@ -23,10 +27,23 @@
     .hero {
         color: var(--gray);
         font-family: var(--primary-font);
-        font-size: 0.95rem;
         display: flex;
         flex-direction: column;
-        gap: 3rem;
+        overflow: hidden;
+        gap: 2rem;
+    }
+    .hero .title {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+        font-size: 1.5rem;
+    }
+
+    .hero .title p {
+        clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+        transform: translateY(100px);
+        opacity: 0;
+        display: inline-block;
     }
 
     .hero span {
@@ -40,21 +57,142 @@
     }
 
     .app_presentation img {
-        width: 50%;
+        width: 20%;
+        max-width: 240px;
+        opacity: 0;
+        transform: translateX(100%);
     }
 
-    .scroll {
+    .scroll_div {
         font-family: var(--second-font);
         font-weight: 400;
         font-size: 1.25rem;
-        letter-spacing: 40px;
+        letter-spacing: 30px;
         display: flex;
         flex-direction: column;
         align-items: center;
+        overflow: hidden;
         gap: 1rem;
     }
 
-    .scroll img {
-        transform: scale(0.8);
+    .scroll_div .scroll-arrow {
+        width: 30px;
+        height: auto;
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    .app_presentation img:nth-child(odd) {
+        transform: translateX(-100%);
+    }
+
+    @media screen and (min-width: 860px) {
+        .hero .title {
+            font-size: 2.5rem;
+        }
+
+        .app_presentation {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .app_presentation img {
+            transform: none;
+        }
+
+        .app_presentation img:nth-child(1) {
+            transform: translateX(-100%);
+        }
+
+        .app_presentation img:nth-child(3) {
+            transform: translateX(100%);
+        }
+
+        .app_presentation img:nth-child(2) {
+            transform: translateY(100%);
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        .hero {
+            max-width: 1440px;
+            margin: auto;
+        }
     }
 </style>
+
+<script>
+    import gsap from "gsap";
+    let mm = gsap.matchMedia();
+
+    const tl = gsap.timeline({
+        defaults: { ease: "power4.inOut", duration: 2 },
+    });
+
+    tl.to(".title p", {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+        opacity: 1,
+        y: 0,
+        duration: 3,
+        stagger: 0.5,
+    }).to(
+        ".app_presentation img",
+        {
+            opacity: 1,
+            x: 0,
+        },
+        "-=2",
+    );
+
+    mm.add("(min-width: 860px)", () => {
+        tl.to(
+            ".app_presentation img:nth-child(2)",
+            {
+                y: 0,
+                duration: 2,
+            },
+            "-=2",
+        );
+    });
+
+    const scrollText = document.querySelector(".scroll");
+    const text = scrollText?.textContent;
+    if (scrollText && text) {
+        scrollText.textContent = "";
+
+        text.split("").forEach((char) => {
+            const span = document.createElement("span");
+            span.classList.add("letter");
+            span.textContent = char === " " ? "\u00A0" : char;
+            scrollText?.appendChild(span);
+        });
+
+        const letters = document.querySelectorAll(".letter");
+
+        tl.fromTo(
+            letters,
+            { y: "100px", opacity: 0 },
+            {
+                y: "0",
+                opacity: 1,
+                duration: 1,
+                stagger: 0.1,
+                ease: "power4.inOut",
+            },
+            "-=1.2",
+        );
+
+        tl.fromTo(
+            ".scroll-arrow",
+            { y: "10", opacity: 0 },
+            {
+                y: "0",
+                opacity: 1,
+                duration: 0.8,
+                repeat: -1,
+                yoyo: true,
+            },
+            "-=0.5"
+        );
+    }
+</script>

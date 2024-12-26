@@ -35,6 +35,7 @@ const items = ["Accueil", "A propos", "Feature", "Contact"];
         transition:
             opacity 0.8s ease,
             transform 0.8s ease;
+        z-index: 10;
     }
 
     .nav-link a {
@@ -70,7 +71,7 @@ const items = ["Accueil", "A propos", "Feature", "Contact"];
         background-color: hsl(31, 30%, 85%);
     }
 
-    @media screen and (min-width: 860px){
+    @media screen and (min-width: 860px) {
         .nav-link {
             display: flex;
             flex-direction: row;
@@ -80,7 +81,6 @@ const items = ["Accueil", "A propos", "Feature", "Contact"];
             width: 33%;
             align-items: center;
             transform: none;
-            
         }
 
         .nav-link a {
@@ -106,22 +106,23 @@ const items = ["Accueil", "A propos", "Feature", "Contact"];
             align-items: center;
             transform: none;
         }
-        
-        .nav-link a{
+
+        .nav-link a {
             font-size: 1rem;
         }
 
-        .burger{
+        .burger {
             display: none;
         }
 
-        nav{
+        nav {
             max-width: 1440px;
             margin: auto;
         }
 
-        img{
-            
+        img {
         }
     }
 </style>
+
+

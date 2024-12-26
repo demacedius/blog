@@ -13,6 +13,7 @@
     "@fontsource/raleway": "^5.1.0",
     "@fontsource/rubik": "^5.1.0",
     "@fontsource/twinkle-star": "^5.1.0",
-    "astro": "^5.1.1"
+    "astro": "^5.1.1",
+    "gsap": "^3.12.5"
   }
 }
