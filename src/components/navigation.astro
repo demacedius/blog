@@ -41,11 +41,29 @@ const items = ["Accueil", "A propos", "Feature", "Contact"];
     .nav-link a {
         text-decoration: none;
         text-align: center;
-        color: #fff;
+        background: linear-gradient(to right, #ff7700 50%, #FFFFFF 50%);
+        background-position: 100% 0;
+        background-size: 200% 100%;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
         font-family: var(--primary-font);
         padding: 2rem 0;
         width: 100%;
         border-bottom: solid 1px hsl(31, 30%, 85%);
+    }
+
+    .nav-link a:hover {
+        animation: grad 0.5s ease-in-out forwards;
+    }
+
+    @keyframes grad {
+        0% {
+            background-position: 100% 0;
+        }
+
+        100% {
+            background-position: 0 0;
+        }
     }
 
     .nav-link a:nth-child(1) {
@@ -126,3 +144,12 @@ const items = ["Accueil", "A propos", "Feature", "Contact"];
 </style>
 
 
+<script>
+
+    import gsap from "gsap";
+
+    const tl = gsap.timeline({
+        defaults: { ease: "power4.inOut", duration: 5 },
+    })
+    tl.fromTo("nav", { opacity: 0 }, { opacity: 1, duration: 4 , ease: "elastic"});
+</script>
