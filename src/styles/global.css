@@ -1,6 +1,6 @@
 @import "@fontsource/bungee";
 @import "@fontsource/raleway";
-@import "@fontsource/rubik";
+@import "@fontsource-variable/rubik";
 *{
     margin: 0;
     padding: 0;
@@ -18,8 +18,8 @@ html{
     --secondary: hsl(207,73%,62%);
     --gray: hsl(31,30%,85%);
     --primary-font: "Bungee", sans-serif;
-    --second-font: "Raleway", sans-serif;
-    --third-font: "Rubik", sans-serif;
+    --second-font: "Raleway Variable", sans-serif;
+    --third-font: "Rubik Variable", sans-serif;
 }
 
 .problem{
@@ -37,11 +37,14 @@ html{
 
 .problem>p{
     flex: 1;
+    
 }
 
 .question{
     flex: 3;
     justify-content: space-between;
     font-family: var(--second-font);
-    font-weight: bold;
+    font-weight: 500 ;
+    display: flex;
+    flex-direction: column;
 }
