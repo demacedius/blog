@@ -29,3 +29,14 @@ function animatedMenuOut() {
         gsap.fromTo(".nav-link", { opacity: 1, y: 0 ,}, { opacity: 0, y: -80, duration: 0.5, ease: "power4.Out" });
     })
 }
+
+
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const cards = document.querySelectorAll(".card");
+
+// Animation pour épingler la section
+
+

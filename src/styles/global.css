@@ -33,7 +33,7 @@ html{
     gap: 2em;
     padding: 10rem 0 10rem 0;
     color: var(--gray);
-    font-size: clamp(1.2rem, 3vw, 2rem);
+    font-size: clamp(calc(5vw * 0.5), 2rem, calc(8vw * 0.5));
     font-family: var(--primary-font);
 
     .wrapper{
@@ -46,6 +46,8 @@ html{
 
 .problem>p{
     flex: 1;
+    position: sticky;
+    top: 0;
     
 }
 
@@ -63,3 +65,4 @@ html{
         background-size: cover;
     }
 }
+
