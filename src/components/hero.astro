@@ -41,7 +41,7 @@
 
     .hero .title p {
         clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
-        transform: translateY(100px);
+        transform: translate(0, 100px);
         text-align: center;
         opacity: 0;
         display: inline-block;
@@ -61,7 +61,7 @@
         width: 20%;
         max-width: 240px;
         opacity: 0;
-        transform: translateX(100%);
+        transform: translate(100%, 0);
     }
 
     .app_presentation img:nth-child(2) {
@@ -103,15 +103,15 @@
         }
 
         .app_presentation img:nth-child(1) {
-            transform: translateX(-100%);
+            transform: translate(-100%,0);
         }
 
         .app_presentation img:nth-child(3) {
-            transform: translateX(100%);
+            transform: translate(100%,0);
         }
 
         .app_presentation img:nth-child(2) {
-            transform: translateY(100%);
+            transform: translate(0,100%);
         }
     }
 

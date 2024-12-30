@@ -27,12 +27,21 @@ html{
     flex-direction: column;
     height: 100vh;
     width: 100svw;
+    max-width: 1440px;
+    margin: auto;
     align-items: center;
-    justify-content: space-between;
+    gap: 2em;
     padding: 10rem 0 10rem 0;
     color: var(--gray);
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 3vw, 2rem);
     font-family: var(--primary-font);
+
+    .wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
 }
 
 .problem>p{
@@ -42,9 +51,15 @@ html{
 
 .question{
     flex: 3;
-    justify-content: space-between;
+    gap: 5em;
     font-family: var(--second-font);
     font-weight: 500 ;
     display: flex;
     flex-direction: column;
+
+    img{
+        max-width: 100%;
+        max-height: auto;
+        background-size: cover;
+    }
 }
