@@ -5,7 +5,7 @@
 <section class="hero">
     <div class="title">
         <p>Et si trouver un <span>partenaire</span></p>
-        <p>pour faire du <span>sport.</span></p>
+        <p>pour faire du <span>sport</span></p>
         <p>n'était plus un <span>probleme ?</span></p>
     </div>
     <div class="app_presentation">
@@ -64,6 +64,10 @@
         transform: translateX(100%);
     }
 
+    .app_presentation img:nth-child(2) {
+        transform: translate(-100%, 0);
+    }
+
     .scroll_div {
         font-family: var(--second-font);
         font-weight: 400;
@@ -77,15 +81,12 @@
     }
 
     .scroll_div .scroll-arrow {
-        width: 30px;
+        width: 50px;
         height: auto;
         opacity: 0;
         transform: translateY(10px);
     }
 
-    .app_presentation img:nth-child(odd) {
-        transform: translateX(-100%);
-    }
 
     @media screen and (min-width: 860px) {
         .hero .title {
