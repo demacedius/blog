@@ -36,7 +36,39 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const cards = document.querySelectorAll(".card");
+const header = document.querySelector(".header");
+const animation = gsap.timeline();
+let cardHeight;
+let cardWidth;
 
-// Animation pour épingler la section
+function initCard() {
+    animation.clear();
+    cardHeight = cards[0].offsetHeight;
+    cardWidth = cards[0].offsetWidth;
+    cards.forEach((card, index) => {
+        if (index > 0) {
+            gsap.set(card, { y: index * cardHeight + 150, x: index * -cardWidth - 200});
+            
+            animation.to(card, { y: 0 , x: 0, duration: index * 0.5, ease: "power4.inOut" }, 0);
+        }
+    })
+}
+
+initCard();
+
+ScrollTrigger.create({
+    trigger: ".wrapper",
+    start: "top top",
+    pin: true,
+    end: () => `+=${(cards.length * cardHeight) + (header.offsetHeight)}`,
+    scrub: true,
+    animation: animation,
+    markers: true,
+    invalidateOnRefresh: true
+})
+
+ScrollTrigger.addEventListener("refreshInit", initCard);
+
+
 
 
