@@ -47,7 +47,7 @@ function initCard() {
     cardWidth = cards[0].offsetWidth;
     cards.forEach((card, index) => {
         if (index > 0) {
-            gsap.set(card, { y: index * cardHeight + 150, x: index * -cardWidth - 200});
+            gsap.set(card, { y: index * cardHeight + 300, x: index * -cardWidth - 400});
             
             animation.to(card, { y: 0 , x: 0, duration: index * 0.5, ease: "power4.inOut" }, 0);
         }
@@ -59,11 +59,12 @@ initCard();
 ScrollTrigger.create({
     trigger: ".wrapper",
     start: "top top",
-    pin: true,
+    pinType: "fixed",
+    pin: ".wrapper",
     end: () => `+=${(cards.length * cardHeight) + (header.offsetHeight)}`,
     scrub: true,
     animation: animation,
-    markers: true,
+    markers: false,
     invalidateOnRefresh: true
 })
 
